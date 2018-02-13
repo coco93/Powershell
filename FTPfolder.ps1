@@ -1,3 +1,15 @@
+# ftp single zip file
+
+
+$webclient = New-Object System.Net.WebClient 
+$webclient.Credentials = New-Object System.Net.NetworkCredential($user,$pass)  
+$uri = New-Object System.Uri("$servername/$remoteFileName")
+write-host $uri
+#upload as file
+write-host "$functionappPath"
+$webclient.UploadFile($uri,$functionappPath)
+
+
 # ftp the entire folder into server (including folders and subfolders) 
 
 function CreateDirD {
